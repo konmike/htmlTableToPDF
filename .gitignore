@@ -12,8 +12,6 @@ composer.phar
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
-composer.lock
-/tmp/
 /.vscode/
 
 # End of https://www.toptal.com/developers/gitignore/api/vscode,composer
