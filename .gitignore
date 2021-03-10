@@ -1,0 +1,19 @@
+### Composer ###
+composer.phar
+/vendor/
+
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock
+
+### vscode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+#composer.lock
+#/tmp/
+/.vscode/
+
+# End of https://www.toptal.com/developers/gitignore/api/vscode,composer
