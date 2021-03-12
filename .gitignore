@@ -15,5 +15,4 @@ composer.phar
 #composer.lock
 #/tmp/
 /.vscode/
-
-# End of https://www.toptal.com/developers/gitignore/api/vscode,composer
+node_modules
