@@ -2008,20 +2008,26 @@ table {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 28% 40% 28%;
+  column-gap: 2%;
+  margin-top: 1rem;
 }
 
-.checkbox .pseudo-label, .checkbox .label, .number .pseudo-label, .number .label {
+.checkbox .pseudo-label, .checkbox .label, .number .pseudo-label, .number .label, .file-icon .pseudo-label, .file-icon .label {
   font-family: Calibri;
   font-weight: 800;
   text-transform: uppercase;
 }
 
+.file-name {
+  font-style: italic;
+}
+
 .form {
   width: 100%;
   box-sizing: border-box;
-  padding: 2rem;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2044,6 +2050,56 @@ main {
 .btn--submit {
   width: fit-content;
   margin: 0.5rem;
+}
+
+.upload {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 20;
+}
+.upload .file-infos {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.upload .file-infos .input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0;
+}
+.upload .file-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 10px;
+  transition: 0.2s;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #2e394d;
+  border: 2px dashed #009dda;
+}
+.upload .file-icon .label {
+  margin-top: 1rem;
+  color: #000;
+}
+.upload .file-name {
+  margin: 0.5rem 0 1rem 0;
+  text-align: center;
 }
 
 .number {

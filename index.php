@@ -11,28 +11,26 @@
 <body>
     <main role="main" class="main">
         <aside class="help help__left">
-
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus repellendus odio deserunt. Adipisci, alias vero? Molestias magnam hic, recusandae nostrum quam odio iure ipsa consequuntur! Delectus porro facilis exercitationem officiis?
         </aside>
 
         <form action="makepdf.php" method="post" class="form" enctype="multipart/form-data">
         
-            <div class="wrapper wrapper--file">
-                <input class="file-input" id="js-file-input" name="myfile" type="file">
-                <div class="file-content">
+            <div class="upload">
                 <div class="file-infos">
-                    <p class="file-icon"><i class="fas fa-file-upload fa-2x"></i>
-                    <span class="icon-shadow"></span>
-                    <span>CLICK <span class="has-drag"> OR DRAG AND DROP</span></span>
+                    <input class="input" id="js-file-input" name="myfile" type="file">
+                    <p class="file-icon">
+                        <i class="fas fa-file-upload fa-3x"></i>
+                        <label class="label">Zde klikni/<span class="has-drag">přetáhni soubor</span></label>
                     </p>
                 </div>
-                    <p class="file-name" id="js-file-name">Žádný soubor nebyl vybrán...</p>
-                </div>
+                <span class="file-name" id="js-file-name">Žádný soubor nebyl vybrán...</span>
             </div>
                 
             <div class="number" id="counter">
                 <label class="label">Počet studentů</label>
                 <div class="counter-minus btn btn--bg-fill">-</div>
-                    <input class="input" type="text" value="1" name="pocetStudentu" >
+                    <input class="input" disabled type="text" value="1" name="pocetStudentu" >
                 <div class="counter-plus btn btn--bg-fill">+</div>
             </div>
                         
@@ -95,7 +93,7 @@
         </form>
 
         <aside class="help help__right">
-
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit provident nobis ratione nemo animi, illum fugit quo veniam ad quam exercitationem possimus, maxime asperiores sint aspernatur iusto libero? Delectus, eaque.
         </aside>
     </main>
     

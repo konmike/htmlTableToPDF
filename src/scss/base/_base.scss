@@ -5,6 +5,8 @@ table{
     display: none;
 }
 main{
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 28% 40% 28%;
+    column-gap: 2%;
+    margin-top: 1rem;
 }
