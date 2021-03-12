@@ -106,7 +106,7 @@
                console.log();
                availableTags.push($('td:first', $(this)).html());
             });
-
+            
             $( "input[name=jmenaStudentu]" ).autocomplete({
                source: availableTags,
                appendTo: null,

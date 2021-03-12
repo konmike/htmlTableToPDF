@@ -113,6 +113,17 @@
           alert('The File APIs are not fully supported in this browser.');
         }*/
 
+        var lastNames = [];
+        var getNames = function(e){
+            let tableNames = document.querySelectorAll('.file tbody td:first-child');
+            if(tableNames.length > 0)
+                tableNames.forEach( function(name){
+                    lastNames.push(name.textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
+                    lastNames.sort();
+                });
+            else
+                console.log("Zadne jmena tam nejsou, kde jsou? Nejsou...");
+        }
         
         var getContent = function(upFile) {
           var reader = new FileReader();
@@ -124,9 +135,9 @@
             $('.file').append(content);
             // console.log($('table tr').length - 1);
             // console.log( ($('table th').length - 8)/2 );
+            getNames();
             $('input[name=pocetStudentu]').val($('table tr').length - 1);
             $('input[name=pocetUloh]').val(($('table th').length - 8)/2);
-
             $('.file style').remove();
 
             
@@ -138,7 +149,6 @@
         try {
             $('#js-file-input').change(function() {
                 getContent(this.files);
-                
             });
         }
         catch (e) {
@@ -185,6 +195,7 @@
             input.addEventListener("change", function(e){      
                 document.getElementById('js-file-name').innerHTML = this.files[0].name;     
                 document.querySelectorAll('.file-input')[0].classList.remove('file-input--active');
+                
             }, false);
         
             if(supportDrag){   
@@ -197,6 +208,8 @@
                 });
             }
         })();
+    
+
     </script>
 </body>
 </html>
