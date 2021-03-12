@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML to PDF parser</title>
     <link rel="stylesheet" href="css\old_style.css">
-    <link rel="stylesheet" href="src\scss\vendor\jquery-ui.css">
+    <link rel="stylesheet" href="css\main.css">
     <link rel="stylesheet" href="node_modules\@fortawesome\fontawesome-free\css\all.min.css">
 </head>
 <body>
@@ -31,16 +31,16 @@
                 
             <div class="wrapper wrapper--number" id="counter">
                 <span>Počet studentů</span>
-                <div class="counter-minus btn btn-primary">-</div>
-                    <input type="text" value="1" name="pocetStudentu">
-                <div class="counter-plus btn btn-primary">+</div>
+                <div class="counter-minus btn btn--bg-fill">-</div>
+                    <input type="text" value="1" name="pocetStudentu" >
+                <div class="counter-plus btn btn--bg-fill">+</div>
             </div>
                         
             <div class="wrapper wrapper--number" id="counter2">
                 <span>Počet úloh</span>
-                <div class="counter-minus btn btn-primary">-</div>
+                <div class="counter-minus btn btn--bg-fill">-</div>
                     <input type="text" value="3" name="pocetUloh">
-                <div class="counter-plus btn btn-primary">+</div>
+                <div class="counter-plus btn btn--bg-fill">+</div>
             </div>
                 
             <div class="wrapper wrapper--checkbox">
@@ -82,15 +82,15 @@
 
             <div class="wrapper wrapper--number" id="counter3">
                 <span>Počet souborů:</span>
-                <div id="counter3-minus" class="counter-minus btn btn-primary">-</div>
+                <div id="counter3-minus" class="counter-minus btn btn--bg-fill">-</div>
                     <input type="text" value="0" name="pocetSouboru">
-                <div id="counter3-plus" class="counter-plus btn btn-primary">+</div>
+                <div id="counter3-plus" class="counter-plus btn btn--bg-fill">+</div>
             </div>
 
             <div id="generated-input" class="wrapper wrapper--generated-input">
             </div>                
             
-            <input type="submit" value="Stáhnout">
+            <input class="btn btn--submit btn--bg-fill" type="submit" value="Stáhnout">
             
         </form>
 
