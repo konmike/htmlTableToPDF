@@ -43,33 +43,33 @@
                 <div class="counter-plus btn btn--bg-fill">+</div>
             </div>
                 
-            <div class="wrapper wrapper--checkbox">
-                <span>Je součástí prohlášení?</span>
-                <input type="checkbox" id="isThereProhlaseni" name="isThereProhlaseni">
+            <div class="checkbox">
+                <span class="pseudo-label">Je součástí prohlášení?</span>
+                <input class="input" type="checkbox" id="isThereProhlaseni" name="isThereProhlaseni">
                 <label class="label label--prohlaseni" for="isThereProhlaseni">
                     <div class="check"></div>
                 </label>
             </div>
         
-            <div class="wrapper wrapper--checkbox">
-                <span>Chci tisknout prohlášení?</span>
-                <input type="checkbox" id="printProhlaseni" name="printProhlaseni">
+            <div class="checkbox">
+                <span class="pseudo-label">Chci tisknout prohlášení?</span>
+                <input class="input" type="checkbox" id="printProhlaseni" name="printProhlaseni">
                 <label class="label label--prohlaseni" for="printProhlaseni">
                     <div class="check"></div>
                 </label>
             </div>
         
-            <div class="wrapper wrapper--checkbox">
-                <span>Chci tisknout i zadání úloh?</span>
-                <input type="checkbox" id="zadani" name="zadani" checked>
+            <div class="checkbox">
+                <span class="pseudo-label">Chci tisknout i zadání úloh?</span>
+                <input class="input" type="checkbox" id="zadani" name="zadani" checked>
                 <label class="label label--zadani" for="zadani">
                     <div class="check"></div>
                 </label>
             </div>
 
-            <div class="wrapper wrapper--checkbox">
-                <span>Zahrnout všechny studenty</span>
-                <input type="checkbox" id="zahrnout-vse" name="zahrnout-vse" checked>
+            <div class="checkbox">
+                <span class="pseudo-label">Zahrnout všechny studenty</span>
+                <input class="input" type="checkbox" id="zahrnout-vse" name="zahrnout-vse" checked>
                 <label class="label label--zahrnout-vse" for="zahrnout-vse">
                     <div class="check"></div>
                 </label>
