@@ -29,17 +29,17 @@
                 </div>
             </div>
                 
-            <div class="wrapper wrapper--number" id="counter">
-                <span>Počet studentů</span>
+            <div class="number" id="counter">
+                <label class="label">Počet studentů</label>
                 <div class="counter-minus btn btn--bg-fill">-</div>
-                    <input type="text" value="1" name="pocetStudentu" >
+                    <input class="input" type="text" value="1" name="pocetStudentu" >
                 <div class="counter-plus btn btn--bg-fill">+</div>
             </div>
                         
-            <div class="wrapper wrapper--number" id="counter2">
-                <span>Počet úloh</span>
+            <div class="number" id="counter2">
+                <label class="label">Počet úloh</label>
                 <div class="counter-minus btn btn--bg-fill">-</div>
-                    <input type="text" value="3" name="pocetUloh">
+                    <input class="input" type="text" value="3" name="pocetUloh">
                 <div class="counter-plus btn btn--bg-fill">+</div>
             </div>
                 
@@ -80,10 +80,10 @@
                 <input type="text" name="jmenaStudentu" autocomplete="off" placeholder="Jmena studentu oddelena carkou">
             </div>
 
-            <div class="wrapper wrapper--number" id="counter3">
-                <span>Počet souborů:</span>
+            <div class="number" id="counter3">
+                <label class="label">Počet souborů:</label>
                 <div id="counter3-minus" class="counter-minus btn btn--bg-fill">-</div>
-                    <input type="text" value="0" name="pocetSouboru">
+                    <input class="input" type="text" value="0" name="pocetSouboru">
                 <div id="counter3-plus" class="counter-plus btn btn--bg-fill">+</div>
             </div>
 

@@ -109,15 +109,13 @@
 }
 
 
-.wrapper--number span, .wrapper--students-name{
+.wrapper--students-name{
     font-family: Calibri;
         font-weight: 800;
         text-transform: uppercase;
     padding-right: 1rem;
     
 }
-
-
 
 
 
@@ -137,36 +135,4 @@
 }
 .wrapper--students-name input{
     margin: 0.2rem 0;
-}
-
-
-
-.wrapper--number{
-    overflow: hidden;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-}
-
-
-.wrapper--number input[type="text"] {
-    
-    text-align: center;
-}
-
-.wrapper--number input[type="text"]:focus{
-    border: none;
-    outline: none;
-}
-.wrapper--number input[type="text"] {
-    width: 50px;
-    
-    border: none;
-    
-    /* padding: 6px 12px; */
-    color: #555;
-    background-color: #fff;
-    background-image: none;
-    
 }
