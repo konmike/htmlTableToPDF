@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML to PDF parser</title>
-    <link rel="stylesheet" href="css\old_style.css">
     <link rel="stylesheet" href="css\main.css">
     <link rel="stylesheet" href="node_modules\@fortawesome\fontawesome-free\css\all.min.css">
 </head>
@@ -42,7 +41,7 @@
             </div>
                 
             <div class="checkbox">
-                <span class="pseudo-label">Je součástí prohlášení?</span>
+                <span class="pseudo-label">Je součástí čestné prohlášení?</span>
                 <input class="input" type="checkbox" id="isThereProhlaseni" name="isThereProhlaseni">
                 <label class="label label--prohlaseni" for="isThereProhlaseni">
                     <div class="check"></div>
@@ -73,9 +72,9 @@
                 </label>
             </div>
 
-            <div id="students-name" class="wrapper wrapper--students-name">
-            <span>Jména studentů:</span>
-                <input type="text" name="jmenaStudentu" autocomplete="off" placeholder="Jmena studentu oddelena carkou">
+            <div id="students-name" class="select">
+            <label class="label">Jména studentů:</label>
+                <input class="input" type="text" name="jmenaStudentu" autocomplete="off" placeholder="Jmena studentu oddelena carkou">
             </div>
 
             <div class="number" id="counter3">
@@ -99,115 +98,10 @@
     
     <div class="file"></div>
 
-    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
     <script src="js/jquery-1.12.4.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/handleCounter.js"></script>
-    
-    <script> 
-        /*if (window.File && window.FileReader && window.FileList && window.Blob) {
-          alert("Si esta soportado el API!");
-        } else {
-          alert('The File APIs are not fully supported in this browser.');
-        }*/
+    <script src="js/supportDrag.js"></script>
 
-        var lastNames = [];
-        var getNames = function(e){
-            let tableNames = document.querySelectorAll('.file tbody td:first-child');
-            if(tableNames.length > 0)
-                tableNames.forEach( function(name){
-                    lastNames.push(name.textContent.normalize("NFD").replace(/[\u0300-\u036f]/g, ""));
-                    lastNames.sort();
-                });
-            else
-                console.log("Zadne jmena tam nejsou, kde jsou? Nejsou...");
-        }
-        
-        var getContent = function(upFile) {
-          var reader = new FileReader();
-          reader.onload = function(event) {
-            var content = event.target.result;
-
-            // console.log(content);
-            
-            $('.file').append(content);
-            // console.log($('table tr').length - 1);
-            // console.log( ($('table th').length - 8)/2 );
-            getNames();
-            $('input[name=pocetStudentu]').val($('table tr').length - 1);
-            $('input[name=pocetUloh]').val(($('table th').length - 8)/2);
-            $('.file style').remove();
-
-            
-
-          };
-          reader.readAsText(upFile[0]);
-        }
-
-        try {
-            $('#js-file-input').change(function() {
-                getContent(this.files);
-            });
-        }
-        catch (e) {
-            alert(e);
-        }
-
-    </script>
-
-    <script>
-        $(function ($) {
-            var options = {
-                minimum: 1,
-                maximize: 500,
-                onChange: valChanged,
-                onMinimum: function(e) {
-                    console.log('reached minimum: '+e)
-                },
-                onMaximize: function(e) {
-                    console.log('reached maximize'+e)
-                }
-            }
-            $('#counter').handleCounter(options)
-            $('#counter2').handleCounter(options)
-			$('#counter3').handleCounter({minimum: 0})
-        })
-        function valChanged(d) {
-//            console.log(d)
-        }
-    </script>
-    <script src="js/formUpdate.js"></script>
-    <script>
-        (function () {
-            window.supportDrag = function() {
-                let div = document.createElement('div');
-                return (('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)) && 'FormData' in window && 'FileReader' in window;
-            }();
-        
-            let input =  document.getElementById('js-file-input');
-        
-            if(!supportDrag){
-                document.querySelectorAll('.has-drag')[0].classList.remove('has-drag');
-            }
-            
-            input.addEventListener("change", function(e){      
-                document.getElementById('js-file-name').innerHTML = this.files[0].name;     
-                document.querySelectorAll('.file-input')[0].classList.remove('file-input--active');
-                
-            }, false);
-        
-            if(supportDrag){   
-                input.addEventListener("dragenter", function(e) {
-                    document.querySelectorAll('.file-input')[0].classList.add('file-input--active');
-                });
-
-                input.addEventListener("dragleave", function(e) {
-                    document.querySelectorAll('.file-input')[0].classList.remove('file-input--active');
-                });
-            }
-        })();
-    
-
-    </script>
 </body>
 </html>

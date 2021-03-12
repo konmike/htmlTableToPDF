@@ -2014,7 +2014,7 @@ main {
   margin-top: 1rem;
 }
 
-.checkbox .pseudo-label, .checkbox .label, .number .pseudo-label, .number .label, .file-icon .pseudo-label, .file-icon .label {
+.checkbox .pseudo-label, .checkbox .label, .number .pseudo-label, .number .label, .select .pseudo-label, .select .label, .file-icon .pseudo-label, .file-icon .label {
   font-family: Calibri;
   font-weight: 800;
   text-transform: uppercase;
@@ -2195,4 +2195,31 @@ main {
 .checkbox .input:checked + .label .check::after {
   width: 10px;
   transform: rotate(45deg) translate(10px, 8px);
+}
+
+.select {
+  margin: 0.5rem;
+  display: none;
+  flex-direction: column;
+  width: max-content;
+}
+.select .label {
+  padding-right: 1rem;
+}
+.select .input {
+  margin: 0.2rem 0;
+}
+
+.wrapper {
+  margin: 0.5rem;
+}
+
+.wrapper--generated-input {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+}
+
+.wrapper--generated-input input {
+  margin: 0.2rem 0;
 }

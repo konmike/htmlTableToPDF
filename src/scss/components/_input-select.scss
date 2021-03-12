@@ -1,0 +1,13 @@
+.select{
+    margin: 0.5rem; 
+    display: none;
+    flex-direction: column;
+    width: max-content;
+    
+    .label{
+        padding-right: 1rem;
+    }
+    .input{
+        margin: 0.2rem 0;
+    }
+}

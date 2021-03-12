@@ -1,0 +1,13 @@
+.wrapper{
+    margin: 0.5rem;
+}
+
+
+.wrapper--generated-input{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+}
+.wrapper--generated-input input{
+    margin: 0.2rem 0;
+}
