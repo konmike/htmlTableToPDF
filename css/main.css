@@ -2051,6 +2051,38 @@ main {
   width: fit-content;
   margin: 0.5rem;
 }
+.btn.sub, .btn.add {
+  background: #fff url("/src/img/plus-minus.svg") no-repeat 0 0;
+  background-size: 4.8rem 2rem;
+  overflow: hidden;
+  cursor: pointer;
+  transition: opacity 0.15s;
+  opacity: 0.5;
+  text-indent: 100%;
+  width: 2rem;
+  height: 2rem;
+  border-top: 1px solid #2e394d;
+  border-bottom: 1px solid #2e394d;
+}
+.btn.sub:focus, .btn.add:focus {
+  outline: none;
+}
+.btn.sub:hover, .btn.add:hover {
+  opacity: 1;
+}
+.btn.add {
+  background-position-x: -2.8rem;
+  border-top-right-radius: 1.4rem;
+  border-bottom-right-radius: 1.4rem;
+  border-right: 1px solid #2e394d;
+  padding-left: 0;
+}
+.btn.sub {
+  border-top-left-radius: 1.4rem;
+  border-bottom-left-radius: 1.4rem;
+  border-left: 1px solid #2e394d;
+  padding-right: 0;
+}
 
 .upload {
   margin: 0;
@@ -2119,10 +2151,22 @@ main {
   background-color: #fff;
   background-image: none;
   text-align: center;
+  -moz-appearance: textfield;
+  border-top: 1px solid rgba(46, 57, 77, 0.5);
+  border-bottom: 1px solid rgba(46, 57, 77, 0.5);
+  font-size: 1rem;
+  height: 2rem;
+  padding: 0;
+  box-sizing: border-box;
 }
 .number .input:focus {
-  border: none;
+  border-top: 1px solid #2e394d;
+  border-bottom: 1px solid #2e394d;
   outline: none;
+}
+.number .input::-webkit-inner-spin-button, .number .input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .checkbox {

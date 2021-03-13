@@ -28,16 +28,16 @@
                 
             <div class="number" id="counter">
                 <label class="label">Počet studentů</label>
-                <div class="counter-minus btn btn--bg-fill">-</div>
-                    <input class="input" disabled type="text" value="1" name="pocetStudentu" >
-                <div class="counter-plus btn btn--bg-fill">+</div>
+                <button class="counter-minus btn btn--bg-fill sub"></button>
+                    <input class="input" disabled type="text" pattern="[0-9]+" value="1" name="pocetStudentu" >
+                <button class="counter-plus btn btn--bg-fill add"></button>
             </div>
                         
             <div class="number" id="counter2">
                 <label class="label">Počet úloh</label>
-                <div class="counter-minus btn btn--bg-fill">-</div>
-                    <input class="input" type="text" value="3" name="pocetUloh">
-                <div class="counter-plus btn btn--bg-fill">+</div>
+                <button class="counter-minus btn btn--bg-fill sub"></button>
+                    <input class="input" type="text" pattern="[0-9]+" value="3" name="pocetUloh">
+                <button class="counter-plus btn btn--bg-fill add"></button>
             </div>
                 
             <div class="checkbox">
@@ -79,9 +79,9 @@
 
             <div class="number" id="counter3">
                 <label class="label">Počet souborů:</label>
-                <div id="counter3-minus" class="counter-minus btn btn--bg-fill">-</div>
-                    <input class="input" type="text" value="0" name="pocetSouboru">
-                <div id="counter3-plus" class="counter-plus btn btn--bg-fill">+</div>
+                <button class="counter-minus btn btn--bg-fill sub"></button>
+                    <input class="input" type="text" pattern="[0-9]+" value="0" name="pocetSouboru">
+                <button class="counter-plus btn btn--bg-fill add"></button>
             </div>
 
             <div id="generated-input" class="wrapper wrapper--generated-input">
@@ -103,5 +103,6 @@
     <script src="js/handleCounter.js"></script>
     <script src="js/supportDrag.js"></script>
 
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>
