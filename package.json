@@ -1,0 +1,25 @@
+{
+  "name": "htmltabletopdf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "jquery": "^3.6.0",
+    "select2": "^4.1.0-rc.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konmike/htmlTableToPDF.git"
+  },
+  "author": "Mike Konecny",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/konmike/htmlTableToPDF/issues"
+  },
+  "homepage": "https://github.com/konmike/htmlTableToPDF#readme"
+}

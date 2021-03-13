@@ -2,11 +2,11 @@ export default class QuantityInput {
   constructor(self) {
     this.input = self.querySelectorAll(".input")[0];
 
-    this.subtract = self.querySelectorAll(".sub")[0];
+    this.substract = self.querySelectorAll(".sub")[0];
 
     this.add = self.querySelectorAll(".add")[0];
 
-    this.subtract.addEventListener("click", (e) => {
+    this.substract.addEventListener("click", (e) => {
       this.change_quantity(-1);
       e.preventDefault();
     });

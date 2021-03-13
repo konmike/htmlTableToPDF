@@ -46,7 +46,8 @@
     &:focus {
       outline: none;
     }
-    &:hover {
+    &:hover,
+    &:focus {
       opacity: 1;
     }
   }
@@ -62,5 +63,12 @@
     border-bottom-left-radius: 1.4rem;
     border-left: 1px solid rgb(46 57 77);
     padding-right: 0;
+  }
+  &:disabled {
+    background-color: rgba(0, 0, 0, 0.2);
+    &:hover {
+      opacity: 0.5;
+      cursor: default;
+    }
   }
 }

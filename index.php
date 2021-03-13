@@ -6,6 +6,8 @@
     <title>HTML to PDF parser</title>
     <link rel="stylesheet" href="css\main.css">
     <link rel="stylesheet" href="node_modules\@fortawesome\fontawesome-free\css\all.min.css">
+    <link href="node_modules\select2\dist\css\select2.min.css" rel="stylesheet" />
+    
 </head>
 <body>
     <main role="main" class="main">
@@ -28,16 +30,16 @@
                 
             <div class="number" id="counter">
                 <label class="label">Počet studentů</label>
-                <button class="counter-minus btn btn--bg-fill sub"></button>
+                <button class="counter-minus btn sub" disabled></button>
                     <input class="input" disabled type="text" pattern="[0-9]+" value="1" name="pocetStudentu" >
-                <button class="counter-plus btn btn--bg-fill add"></button>
+                <button class="counter-plus btn  add" disabled></button>
             </div>
                         
             <div class="number" id="counter2">
                 <label class="label">Počet úloh</label>
-                <button class="counter-minus btn btn--bg-fill sub"></button>
+                <button class="counter-minus btn  sub"></button>
                     <input class="input" type="text" pattern="[0-9]+" value="3" name="pocetUloh">
-                <button class="counter-plus btn btn--bg-fill add"></button>
+                <button class="counter-plus btn  add"></button>
             </div>
                 
             <div class="checkbox">
@@ -57,7 +59,7 @@
             </div>
         
             <div class="checkbox">
-                <span class="pseudo-label">Chci tisknout i zadání úloh?</span>
+                <span class="pseudo-label">Chci tisknout zadání úloh?</span>
                 <input class="input" type="checkbox" id="zadani" name="zadani" checked>
                 <label class="label label--zadani" for="zadani">
                     <div class="check"></div>
@@ -74,14 +76,13 @@
 
             <div id="students-name" class="select">
             <label class="label">Jména studentů:</label>
-                <input class="input" type="text" name="jmenaStudentu" autocomplete="off" placeholder="Jmena studentu oddelena carkou">
             </div>
 
             <div class="number" id="counter3">
                 <label class="label">Počet souborů:</label>
-                <button class="counter-minus btn btn--bg-fill sub"></button>
+                <button class="counter-minus btn  sub"></button>
                     <input class="input" type="text" pattern="[0-9]+" value="0" name="pocetSouboru">
-                <button class="counter-plus btn btn--bg-fill add"></button>
+                <button class="counter-plus btn  add"></button>
             </div>
 
             <div id="generated-input" class="wrapper wrapper--generated-input">
@@ -97,12 +98,9 @@
     </main>
     
     <div class="file"></div>
-
-    <script src="js/jquery-1.12.4.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="js/handleCounter.js"></script>
-    <script src="js/supportDrag.js"></script>
 
-    <script type="module" src="js/app.js"></script>
+    <script src="js/app.js" type="module"></script>
 </body>
 </html>
