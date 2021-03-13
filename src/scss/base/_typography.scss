@@ -1,11 +1,27 @@
-.checkbox, .number, .select, .file-icon{
-    .pseudo-label, .label{
-        font-family: Calibri;
-        font-weight: 800;
-        text-transform: uppercase;
-    }
+.checkbox,
+.number,
+.select,
+.file-icon {
+  .pseudo-label,
+  .label,
+  .legend {
+    font-family: Calibri;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
 }
 
-.file-name{
-    font-style: italic;
+.radio {
+  .legend {
+    font-family: Calibri;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+  .label {
+    font-family: Calibri;
+  }
+}
+
+.file-name {
+  font-style: italic;
 }

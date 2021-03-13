@@ -78,6 +78,22 @@
             <label class="label">Jména studentů:</label>
             </div>
 
+            <div class="radio">
+                <legend class="legend">Způsob generování PDF</legend>
+                <label class="label">
+                    <input class="input" type="radio" name="radio" value="0" checked/>
+                    <span>Každá práce do samostaného PDF</span>
+                </label>
+                <label class="label">
+                    <input class="input" type="radio" name="radio" value="1" />
+                    <span>Všechny práce v rámci jednoho PDF</span>
+                </label>
+                <label class="label">
+                    <input class="input" type="radio" name="radio" value="2"/>
+                    <span>Rozdělení prací do více PDF</span>
+                </label>
+            </div>
+
             <div class="number" id="counter3">
                 <label class="label">Počet souborů:</label>
                 <button class="counter-minus btn  sub"></button>

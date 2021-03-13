@@ -79,3 +79,11 @@ document.getElementById("zahrnout-vse").addEventListener("change", function () {
     selectWrapper.style.display = "none";
   }
 });
+
+document.querySelectorAll(".radio")[0].addEventListener("change", function () {
+  if (document.querySelectorAll(".radio .input")[2].checked) {
+    document.querySelectorAll(".radio + .number")[0].style.display = "flex";
+  } else {
+    document.querySelectorAll(".radio + .number")[0].style.display = "none";
+  }
+});
