@@ -338,16 +338,10 @@ main {
   display: none;
 }
 
-.wrapper {
+.generated {
   margin: 0.5rem;
-}
-
-.wrapper--generated-input {
   display: none;
   flex-direction: column;
   width: max-content;
-}
-
-.wrapper--generated-input input {
-  margin: 0.2rem 0;
+  padding-left: 1.5rem;
 }

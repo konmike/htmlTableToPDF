@@ -9,10 +9,14 @@ export default class QuantityInput {
     this.substract.addEventListener("click", (e) => {
       this.change_quantity(-1);
       e.preventDefault();
+      let evt = new Event("change");
+      this.input.dispatchEvent(evt);
     });
     this.add.addEventListener("click", (e) => {
       this.change_quantity(1);
       e.preventDefault();
+      let evt = new Event("change");
+      this.input.dispatchEvent(evt);
     });
   }
 

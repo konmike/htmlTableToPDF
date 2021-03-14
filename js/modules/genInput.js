@@ -1,7 +1,7 @@
 import QuantityInput from "./quantity.js";
 
 export default class genInput {
-  constructor(self) {
+  constructor(self, val) {
     function Input() {
       this.input = document.createElement("input");
       this.input.value = 0;
@@ -47,11 +47,42 @@ export default class genInput {
 
     // this.wrapper = new Wrapper("number");
 
-    for (let i = 0; i < 2; i++) {
-      this.wrapper = new generateBlock();
-      new QuantityInput(this.wrapper);
-      console.log("Add");
+    if (this.getChilds() < val) {
+      let s = val - this.getChilds();
+      for (let i = 0; i < s; i++) {
+        // this.addChild();
+        this.wrapper = new generateBlock();
+        new QuantityInput(this.wrapper);
+        // this.wrapper = new generateBlock();
+        // new QuantityInput(this.wrapper);
+        // console.log(this.getChilds());
+      }
+    } else if (this.getChilds() > val) {
+      let s = this.getChilds() - val;
+      console.log(s);
+      for (let i = 0; i < s; i++) {
+        this.removeChild();
+        // console.log(this.getChilds());
+      }
     }
+  }
+
+  /**
+   * Return number of child element of generated wrapper
+   * @return  {int}
+   * */
+  getChilds() {
+    return document.getElementById("generated").childElementCount;
+  }
+
+  addChild() {
+    this.wrapper = new generateBlock();
+    new QuantityInput(this.wrapper);
+  }
+
+  removeChild() {
+    let g = document.getElementById("generated");
+    g.removeChild(g.lastElementChild);
   }
 
   //   change_quantity(change) {

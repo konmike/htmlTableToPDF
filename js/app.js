@@ -77,12 +77,22 @@ document.getElementById("zahrnout-vse").addEventListener("change", function () {
 
 document.querySelectorAll(".radio")[0].addEventListener("change", function () {
   let rN = document.querySelectorAll(".radio + .number")[0];
-  let genIn = document.getElementById("generated-input");
+  let value = document.querySelectorAll(".radio + .number .input")[0].value;
+  let genIn = document.getElementById("generated");
 
   if (document.querySelectorAll(".radio .input")[2].checked) {
     cssEdit.changeStyle([rN, genIn], "display", "flex");
-    new genInput(genIn);
+    new genInput(genIn, value);
   } else {
     cssEdit.changeStyle([rN, genIn], "display", "none");
   }
 });
+
+document
+  .querySelectorAll(".number .input")[2]
+  .addEventListener("change", function () {
+    let value = document.querySelectorAll(".radio + .number .input")[0].value;
+    // console.log("Hello " + value);
+    let genIn = document.getElementById("generated");
+    new genInput(genIn, value);
+  });

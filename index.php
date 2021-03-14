@@ -94,14 +94,14 @@
                 </label>
             </div>
 
-            <div class="number" id="counter3">
+            <div class="number">
                 <label class="label">Počet souborů:</label>
                 <button class="btn sub"></button>
                     <input class="input" type="text" pattern="[0-9]+" value="2" min="2" name="pocetSouboru">
                 <button class="btn add"></button>
             </div>
 
-            <div id="generated-input" class="wrapper wrapper--generated-input">
+            <div id="generated" class="generated">
             </div>                
             
             <input class="btn btn--submit btn--bg-fill" type="submit" value="Stáhnout">
@@ -115,8 +115,7 @@
     
     <div class="file"></div>
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/handleCounter.js"></script>
-
     <script src="js/app.js" type="module"></script>
+    
 </body>
 </html>
