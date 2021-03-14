@@ -28,18 +28,18 @@
                 <span class="file-name" id="js-file-name">Žádný soubor nebyl vybrán...</span>
             </div>
                 
-            <div class="number" id="counter">
-                <label class="label">Počet studentů</label>
-                <button class="counter-minus btn sub" disabled></button>
-                    <input class="input" disabled type="text" pattern="[0-9]+" value="1" name="pocetStudentu" >
-                <button class="counter-plus btn  add" disabled></button>
+            <div class="number">
+                <label class="label">Počet prací</label>
+                <button class="btn sub" disabled></button>
+                    <input class="input" disabled type="text" pattern="[0-9]+" value="0" name="pocetStudentu" >
+                <button class="btn add" disabled></button>
             </div>
                         
-            <div class="number" id="counter2">
+            <div class="number">
                 <label class="label">Počet úloh</label>
-                <button class="counter-minus btn  sub"></button>
-                    <input class="input" type="text" pattern="[0-9]+" value="3" name="pocetUloh">
-                <button class="counter-plus btn  add"></button>
+                <button class="btn sub"></button>
+                    <input class="input" type="text" pattern="[0-9]+" value="0" name="pocetUloh">
+                <button class="btn add"></button>
             </div>
                 
             <div class="checkbox">
@@ -96,9 +96,9 @@
 
             <div class="number" id="counter3">
                 <label class="label">Počet souborů:</label>
-                <button class="counter-minus btn  sub"></button>
-                    <input class="input" type="text" pattern="[0-9]+" value="0" name="pocetSouboru">
-                <button class="counter-plus btn  add"></button>
+                <button class="btn sub"></button>
+                    <input class="input" type="text" pattern="[0-9]+" value="2" min="2" name="pocetSouboru">
+                <button class="btn add"></button>
             </div>
 
             <div id="generated-input" class="wrapper wrapper--generated-input">

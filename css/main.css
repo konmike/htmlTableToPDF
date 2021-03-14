@@ -343,7 +343,7 @@ main {
 }
 
 .wrapper--generated-input {
-  display: flex;
+  display: none;
   flex-direction: column;
   width: max-content;
 }

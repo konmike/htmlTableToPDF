@@ -1,8 +1,8 @@
 import QuantityInput from "./modules/quantity.js";
 import Select from "./modules/select.js";
 import Upload from "./modules/upload.js";
-
-import "/node_modules/select2/dist/js/select2.min.js";
+import cssEdit from "./modules/styleEdit.js";
+import genInput from "./modules/genInput.js";
 
 (function () {
   let quantities = document.querySelectorAll(".number");
@@ -23,6 +23,7 @@ import "/node_modules/select2/dist/js/select2.min.js";
   })();
 
   let input = document.getElementById("js-file-input");
+  let upIn = document.querySelectorAll(".upload .input")[0];
 
   if (!supportDrag) {
     document.querySelectorAll(".has-drag")[0].classList.remove("has-drag");
@@ -32,24 +33,18 @@ import "/node_modules/select2/dist/js/select2.min.js";
     "change",
     function (e) {
       document.getElementById("js-file-name").innerHTML = this.files[0].name;
-      document
-        .querySelectorAll(".upload .input")[0]
-        .classList.remove("file-input--active");
+      upIn.classList.remove("file-input--active");
     },
     false
   );
 
   if (supportDrag) {
     input.addEventListener("dragenter", function (e) {
-      document
-        .querySelectorAll(".upload .input")[0]
-        .classList.add("file-input--active");
+      upIn.classList.add("file-input--active");
     });
 
     input.addEventListener("dragleave", function (e) {
-      document
-        .querySelectorAll(".upload .input")[0]
-        .classList.remove("file-input--active");
+      upIn.classList.remove("file-input--active");
     });
   }
 })();
@@ -81,9 +76,13 @@ document.getElementById("zahrnout-vse").addEventListener("change", function () {
 });
 
 document.querySelectorAll(".radio")[0].addEventListener("change", function () {
+  let rN = document.querySelectorAll(".radio + .number")[0];
+  let genIn = document.getElementById("generated-input");
+
   if (document.querySelectorAll(".radio .input")[2].checked) {
-    document.querySelectorAll(".radio + .number")[0].style.display = "flex";
+    cssEdit.changeStyle([rN, genIn], "display", "flex");
+    new genInput(genIn);
   } else {
-    document.querySelectorAll(".radio + .number")[0].style.display = "none";
+    cssEdit.changeStyle([rN, genIn], "display", "none");
   }
 });
