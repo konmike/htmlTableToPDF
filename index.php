@@ -31,7 +31,7 @@
             <div class="number">
                 <label class="label">Počet prací</label>
                 <button class="btn sub" disabled></button>
-                    <input class="input" disabled type="text" pattern="[0-9]+" value="0" name="pocetStudentu" >
+                    <input class="input" readonly type="text" pattern="[0-9]+" value="0" name="pocetStudentu" >
                 <button class="btn add" disabled></button>
             </div>
                         
@@ -75,21 +75,21 @@
             </div>
 
             <div id="students-name" class="select">
-            <label class="label">Jména studentů:</label>
+            <label class="label">Jména vybraných studentů:</label>
             </div>
 
             <div class="radio">
                 <legend class="legend">Způsob generování PDF</legend>
                 <label class="label">
-                    <input class="input" type="radio" name="radio" value="0" checked/>
+                    <input class="input" type="radio" name="resultOption" value="0" checked/>
                     <span>Každá práce do samostaného PDF</span>
                 </label>
                 <label class="label">
-                    <input class="input" type="radio" name="radio" value="1" />
+                    <input class="input" type="radio" name="resultOption" value="1" />
                     <span>Všechny práce v rámci jednoho PDF</span>
                 </label>
                 <label class="label">
-                    <input class="input" type="radio" name="radio" value="2"/>
+                    <input class="input" type="radio" name="resultOption" value="2"/>
                     <span>Rozdělení prací do více PDF</span>
                 </label>
             </div>

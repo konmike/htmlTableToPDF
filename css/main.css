@@ -194,8 +194,8 @@ main {
   -webkit-appearance: none;
   margin: 0;
 }
-.number .input:disabled {
-  background-color: rgba(0, 0, 0, 0.05);
+.number .input[name=pocetStudentu] {
+  pointer-events: none;
 }
 
 .checkbox {

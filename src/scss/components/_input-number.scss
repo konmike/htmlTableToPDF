@@ -35,8 +35,8 @@
       -webkit-appearance: none;
       margin: 0;
     }
-    &:disabled {
-      background-color: rgba(0, 0, 0, 0.05);
+    &[name="pocetStudentu"] {
+      pointer-events: none;
     }
   }
 }

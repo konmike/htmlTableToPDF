@@ -6,7 +6,7 @@ export default class genInput {
       this.input = document.createElement("input");
       this.input.value = 0;
       this.input.type = "number";
-      this.input.name = "qI[]";
+      this.input.name = "gI[]";
       this.input.pattern = "[0-9]+";
       this.input.classList.add("input");
       return this.input;

@@ -10,22 +10,28 @@ require_once __DIR__ . '/Classes/CMakePdf.php';
 
 $pocetStudentu = $_POST['pocetStudentu'];
 $pocetUloh = $_POST['pocetUloh'];
-$pocetSouboru = $_POST['pocetSouboru']; 
+
 $isThereProhlaseni = (isset($_POST['isThereProhlaseni'])) ? 'Ano' : 'Ne';
 $printProhlaseni = (isset($_POST['printProhlaseni'])) ? 'Ano' : 'Ne';
 $zadani = (isset($_POST['zadani'])) ? 'Ano' : 'Ne';
 $zahrnoutVse = (isset($_POST['zahrnout-vse'])) ? 'Ano' : 'Ne';
 
+$resultOption = $_POST['resultOption'];
+
+if ($resultOption == 2){
+    $pocetSouboru = $_POST['pocetSouboru'];
+    $generatedInputs = $_POST['gI'];
+
+    // echo count($generatedInputs) . '<br>';
+}
+
 if($zahrnoutVse == 'Ne'){
-    $jmenaStudentu = explode(',', $_POST['jmenaStudentu']);
+    $jmenaStudentu = $_POST['names'];
     // foreach ($jmenaStudentu as $student) {
     //     echo $student;
     //     echo '<br>';
     // }
 }
-$generatedInputs = (isset($_POST['gI'])) ? $_POST['gI'] : 0;
-
-
 
 //Zprovozněno přes nahrávací tlačítko
 $oldPath = $_FILES['myfile']['tmp_name'];
@@ -168,12 +174,12 @@ if($zahrnoutVse == 'Ne'){
 
 $makepdf = new CMakePdf();
 
-if($pocetSouboru == 0){
+if($resultOption == 0){
     if($zahrnoutVse == 'Ano')
         $makepdf->onePdfPerStudent($students,$pocetUloh,$zadani,$task, $printProhlaseni);
     else
         $makepdf->onePdfPerStudent($vyvoleni,$pocetUloh,$zadani,$task, $printProhlaseni);
-}else if($pocetSouboru == 1){
+}else if($resultOption == 1){
     if($zahrnoutVse == 'Ano')
         $makepdf->onePdfAllStudents($students,$pocetUloh,$zadani,$task, $printProhlaseni);
     else
