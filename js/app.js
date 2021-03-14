@@ -96,12 +96,3 @@ document
     let genIn = document.getElementById("generated");
     new genInput(genIn, value);
   });
-
-// document
-//   .querySelector("input[type=submit]")
-//   .addEventListener("click", function () {
-//     var frm = document.querySelector(".form");
-//     frm.submit(); // Submit the form
-//     frm.reset(); // Reset all form data
-//     return false;
-//   });

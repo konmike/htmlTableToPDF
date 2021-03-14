@@ -133,14 +133,16 @@ while (true) {
 }
 
 if($zahrnoutVse == 'Ne'){
+    $transliterator = Transliterator::createFromRules(':: Any-Latin; :: Latin-ASCII; :: NFD; :: [:Nonspacing Mark:] Remove; :: NFC;', Transliterator::FORWARD);
+    
     $vyvoleni = [];
     foreach ($students as $student) {
         // echo 'Pocet: ' . count($jmenaStudentu) . '<br>';
-        // echo 'Porovnej: ' . $student->lastname . '<br>';
+        // echo 'Porovnej: ' . $transliterator->transliterate($student->lastname) . '<br>';
         foreach ($jmenaStudentu as $jmeno) {
             // echo $jmeno . '<br>';
             
-            if($jmeno == $student->lastname){
+            if($jmeno == $transliterator->transliterate($student->lastname)){
                 // echo $student->lastname . ' ' . $student->email . '<br>';
                 array_push($vyvoleni, $student);
                 continue;
