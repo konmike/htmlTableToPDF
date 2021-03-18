@@ -13,10 +13,6 @@ main {
   margin-top: 1rem;
 }
 
-.help {
-  opacity: 0;
-}
-
 .checkbox .pseudo-label,
 .checkbox .label,
 .checkbox .legend,
@@ -348,4 +344,17 @@ main {
   flex-direction: column;
   width: max-content;
   padding-left: 1.5rem;
+}
+
+li {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+li svg {
+  fill: #ffb938;
+  stroke: #ffb938;
+  transform: rotateX(0deg) rotateY(180deg) rotateZ(-30deg);
+  width: 6rem;
 }
