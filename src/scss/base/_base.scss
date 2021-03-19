@@ -5,11 +5,9 @@ table {
   display: none;
 }
 main {
-  display: grid;
-  grid-template-columns: 28% 40% 28%;
-  column-gap: 2%;
+  display: flex;
+  // grid-template-columns: 28% 40% 28%;
+  // column-gap: 2%;
+  place-items: center center;
   margin-top: 1rem;
-}
-.help {
-  // opacity: 0;
 }

@@ -1,0 +1,45 @@
+.help {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-family: Calibri;
+  svg {
+    fill: #ffb938;
+    /* stroke: #ffb938; */
+    width: 4rem;
+    padding: 0 0 0 1rem;
+  }
+  span {
+    display: flex;
+    place-items: center center;
+    padding-left: 1rem;
+
+    &::after {
+      content: url(/src/img/fill-arrow.svg);
+      min-width: 1.4rem;
+      min-height: 1.4rem;
+      max-width: 1.4rem;
+      max-height: 1.4rem;
+      padding-left: 0.5rem;
+      fill: #ffb938;
+    }
+  }
+
+  &--upload,
+  &--pocet-uloh {
+    grid-column: 1/2;
+  }
+  &--upload {
+    padding-top: 1rem;
+    span {
+      align-self: start;
+    }
+  }
+  &--pocet-uloh {
+    span {
+      align-self: center;
+    }
+  }
+}
