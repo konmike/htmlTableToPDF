@@ -5,9 +5,26 @@ table {
   display: none;
 }
 main {
-  display: flex;
+  // display: flex;
   // grid-template-columns: 28% 40% 28%;
   // column-gap: 2%;
-  place-items: center center;
-  margin-top: 1rem;
+  // place-items: center center;
+  margin: 1rem 0;
+}
+
+#images {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  img {
+    border: 2px solid #2e394d;
+    max-width: 20%;
+    height: auto;
+    margin-right: 0.3rem;
+    cursor: zoom-in;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
 }

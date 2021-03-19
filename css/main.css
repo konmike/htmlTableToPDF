@@ -7,9 +7,24 @@ table {
 }
 
 main {
+  margin: 1rem 0;
+}
+
+#images {
   display: flex;
-  place-items: center center;
-  margin-top: 1rem;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+#images img {
+  border: 2px solid #2e394d;
+  max-width: 20%;
+  height: auto;
+  margin-right: 0.3rem;
+  cursor: zoom-in;
+}
+#images img:last-child {
+  margin-right: 0;
 }
 
 .checkbox .pseudo-label,
@@ -48,7 +63,7 @@ main {
   padding: 0;
   display: grid;
   grid-template-columns: 28% 40% 28%;
-  grid-gap: 2%;
+  grid-column-gap: 2%;
   /* align-items: center; */
 }
 
@@ -69,6 +84,7 @@ main {
   width: fit-content;
   margin: 0.5rem;
   grid-column: 2/3;
+  display: none;
 }
 .btn.sub, .btn.add {
   background: #fff url("/src/img/plus-minus.svg") no-repeat 0 0;
@@ -164,7 +180,7 @@ main {
 
 .number {
   overflow: hidden;
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   margin: 0.5rem;
@@ -203,7 +219,7 @@ main {
 
 .checkbox {
   position: relative;
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
   margin: 0.5rem;
@@ -291,6 +307,8 @@ main {
 .radio {
   margin: 0.5rem;
   grid-column: 2/3;
+  display: none;
+  flex-direction: column;
 }
 .radio .legend {
   margin-bottom: 0.5rem;
@@ -352,12 +370,17 @@ main {
   padding-left: 1.5rem;
   grid-column: 2/3;
 }
+.generated .number {
+  display: flex;
+}
 
 .help {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  grid-column: 1/2;
+  margin: 0.5rem 0 0.5rem 0.5rem;
   font-size: 1.2rem;
   font-family: Calibri;
 }
@@ -381,15 +404,19 @@ main {
   padding-left: 0.5rem;
   fill: #ffb938;
 }
-.help--upload, .help--pocet-uloh {
-  grid-column: 1/2;
+.help--pocet-uloh, .help--jmena-studentu, .help--generated {
+  display: none;
 }
 .help--upload {
-  padding-top: 1rem;
+  flex-direction: column;
 }
 .help--upload span {
   align-self: start;
 }
-.help--pocet-uloh span {
+.help--upload svg {
+  transform: rotateX(180deg) rotate(45deg);
+  fill: #ffb938;
+}
+.help--pocet-uloh span, .help--jmena-studentu span, .help--generated span {
   align-self: center;
 }

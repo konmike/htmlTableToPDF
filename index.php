@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css\main.css">
     <link rel="stylesheet" href="node_modules\@fortawesome\fontawesome-free\css\all.min.css">
     <link href="node_modules\select2\dist\css\select2.min.css" rel="stylesheet" />
+    <link href="node_modules\viewerjs\dist\viewer.min.css" rel="stylesheet" />
     
 </head>
 <body>
@@ -15,6 +16,7 @@
         
             <div class="help help--upload">
                 <span>Stáhněte si odevzdané práce studentů na webu moodle.prf.cuni.cz ve formátu HTML tabulka.</span>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M88.6,79c-29.2-8.5-59.2-24.6-69-55.2c3.7,1.6,7.4,3.2,11.2,4.8c2.3,1,4.3-2.4,2-3.4c-6.1-2.6-12.2-5.2-18.4-7.9  c-2.2-1-4.2,2.2-2.2,3.3c-0.2,0.3-0.4,0.6-0.4,1.1c-0.3,4.8-0.7,9.6-1,14.3c-0.7,2.9-1,5.8-0.6,8.9c0.3,2.5,3.8,2.6,3.9,0  c0.2-2.7,0.4-5.5,0.6-8.2c0.1-0.5,0.2-1,0.4-1.5c0.2-0.6,0.1-1.2-0.2-1.6c0.2-3.2,0.4-6.4,0.7-9.6c9.9,32.4,41.2,49.7,72,58.7  C90,83.5,91,79.7,88.6,79z"/></svg>
             </div>
 
             <div class="upload">
@@ -36,7 +38,6 @@
             </div>
                      
             <div class="help help--pocet-uloh">
-            <!-- <span>Stáhněte si odevzdané práce studentů na webu moodle.prf.cuni.cz ve formátu HTML tabulka.</span> -->
                 <span>Počet úloh k vypracování (bez čestného prohlášení).</span>
             </div>
 
@@ -79,15 +80,19 @@
                 </label>
             </div>
 
+            <div class="help help--jmena-studentu">
+                <span>Jména jsou bez diakritiky, řazena abecedně.</span>
+            </div>
+
             <div id="students-name" class="select">
-            <label class="label">Jména vybraných studentů:</label>
+                <label class="label">Jména vybraných studentů:</label>
             </div>
 
             <div class="radio">
                 <legend class="legend">Způsob generování PDF</legend>
                 <label class="label">
                     <input class="input" type="radio" name="resultOption" value="0" checked/>
-                    <span>Každá práce do samostaného PDF</span>
+                    <span>Každá práce do samostatného PDF</span>
                 </label>
                 <label class="label">
                     <input class="input" type="radio" name="resultOption" value="1" />
@@ -106,6 +111,10 @@
                 <button class="btn add"></button>
             </div>
 
+            <div class="help help--generated">
+                <span id="rest"></span>
+            </div>
+
             <div id="generated" class="generated">
             </div>                
             
@@ -113,9 +122,12 @@
             
         </form>
 
-        <!-- <aside class="help help__right">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit provident nobis ratione nemo animi, illum fugit quo veniam ad quam exercitationem possimus, maxime asperiores sint aspernatur iusto libero? Delectus, eaque.
-        </aside> -->
+        <div id="images" class="moodle--images">
+            <img src="/src/img/navod/1.png" alt="Jedna">
+            <img src="/src/img/navod/2.png" alt="Dva">
+            <img src="/src/img/navod/3.png" alt="Tři">
+            <img src="/src/img/navod/4.png" alt="Čtyři">
+        </div>
     </main>
     
     <div class="file"></div>

@@ -9,6 +9,22 @@ export default class genInput {
       this.input.name = "gI[]";
       this.input.pattern = "[0-9]+";
       this.input.classList.add("input");
+
+      this.input.addEventListener("change", function () {
+        let inputs = document.querySelectorAll(".generated .input");
+        let rest = 0;
+        inputs.forEach((input) => (rest += Number(input.value)));
+        // console.log(rest);
+
+        let pS = Number(
+          document.querySelector("input[name=pocetStudentu]").value
+        );
+        // console.log(pS);
+        // console.log(pS - rest);
+        document.getElementById("rest").innerText =
+          "Zbývá rozřadit " + (pS - rest) + " prací.";
+      });
+
       return this.input;
     }
 
@@ -84,12 +100,4 @@ export default class genInput {
     let g = document.getElementById("generated");
     g.removeChild(g.lastElementChild);
   }
-
-  //   change_quantity(change) {
-  //     let quantity = Number(this.input.value);
-  //     if (isNaN(quantity)) quantity = 1;
-  //     quantity += change;
-  //     quantity = Math.max(quantity, 1);
-  //     this.input.value = quantity;
-  //   }
 }

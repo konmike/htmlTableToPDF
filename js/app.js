@@ -3,6 +3,7 @@ import Select from "./modules/select.js";
 import Upload from "./modules/upload.js";
 import cssEdit from "./modules/styleEdit.js";
 import genInput from "./modules/genInput.js";
+import "/node_modules/viewerjs/dist/viewer.js";
 
 (function () {
   let quantities = document.querySelectorAll(".number");
@@ -52,7 +53,27 @@ import genInput from "./modules/genInput.js";
 try {
   let input = document.getElementById("js-file-input");
   input.addEventListener("change", function () {
+    // let numbers = document.querySelectorAll(".upload + .number");
     Upload.getContent(input.files);
+
+    let current = document.querySelector(".upload");
+    let nextSibling = current.nextElementSibling;
+
+    while (nextSibling) {
+      if (
+        nextSibling.classList.contains("btn") ||
+        (!nextSibling.classList.contains("generated") &&
+          !nextSibling.classList.contains("help--generated") &&
+          !nextSibling.classList.contains("select") &&
+          !nextSibling.classList.contains("help--jmena-studentu") &&
+          !nextSibling.nextElementSibling.classList.contains("help--generated"))
+      ) {
+        nextSibling.style.display = "flex";
+      }
+      nextSibling = nextSibling.nextElementSibling;
+    }
+    document.getElementById("images").style.display = "none";
+    document.querySelector(".help--upload").style.display = "none";
   });
 } catch (e) {
   alert(e);
@@ -60,8 +81,11 @@ try {
 
 document.getElementById("zahrnout-vse").addEventListener("change", function () {
   let selectWrapper = document.getElementById("students-name");
+  let selectHelp = document.querySelector(".help--jmena-studentu");
   if (this.checked === false) {
-    selectWrapper.style.display = "block";
+    cssEdit.changeStyle([selectWrapper, selectHelp], "display", "flex");
+    // selectWrapper.style.display = "block";
+    // selectHelp.style.display = "flex";
     new Select(document.querySelectorAll(".select")[0]);
   } else {
     let select = document.getElementsByClassName(
@@ -71,20 +95,26 @@ document.getElementById("zahrnout-vse").addEventListener("change", function () {
     // console.log(select);
     selectWrapper.removeChild(select);
     selectWrapper.removeChild(span);
-    selectWrapper.style.display = "none";
+    // selectWrapper.style.display = "none";
+    // selectHelp.style.display = "none";
+    cssEdit.changeStyle([selectWrapper, selectHelp], "display", "none");
   }
 });
 
 document.querySelectorAll(".radio")[0].addEventListener("change", function () {
   let rN = document.querySelectorAll(".radio + .number")[0];
+  let helpGen = document.querySelector(".help--generated");
   let value = document.querySelectorAll(".radio + .number .input")[0].value;
   let genIn = document.getElementById("generated");
 
   if (document.querySelectorAll(".radio .input")[2].checked) {
-    cssEdit.changeStyle([rN, genIn], "display", "flex");
+    let pS = Number(document.querySelector("input[name=pocetStudentu]").value);
+    document.getElementById("rest").innerText =
+      "Zbývá rozřadit " + pS + " prací.";
+    cssEdit.changeStyle([rN, genIn, helpGen], "display", "flex");
     new genInput(genIn, value);
   } else {
-    cssEdit.changeStyle([rN, genIn], "display", "none");
+    cssEdit.changeStyle([rN, genIn, helpGen], "display", "none");
   }
 });
 
@@ -96,3 +126,5 @@ document
     let genIn = document.getElementById("generated");
     new genInput(genIn, value);
   });
+
+const gallery = new Viewer(document.getElementById("images"));

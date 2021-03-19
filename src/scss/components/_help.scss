@@ -3,6 +3,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  grid-column: 1/2;
+  margin: 0.5rem 0 0.5rem 0.5rem;
   font-size: 1.2rem;
   font-family: Calibri;
   svg {
@@ -27,17 +29,25 @@
     }
   }
 
-  &--upload,
-  &--pocet-uloh {
-    grid-column: 1/2;
+  &--pocet-uloh,
+  &--jmena-studentu,
+  &--generated {
+    display: none;
   }
+
   &--upload {
-    padding-top: 1rem;
+    flex-direction: column;
     span {
       align-self: start;
     }
+    svg {
+      transform: rotateX(180deg) rotate(45deg);
+      fill: #ffb938;
+    }
   }
-  &--pocet-uloh {
+  &--pocet-uloh,
+  &--jmena-studentu,
+  &--generated {
     span {
       align-self: center;
     }

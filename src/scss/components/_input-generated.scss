@@ -5,4 +5,7 @@
   width: max-content;
   padding-left: 1.5rem;
   grid-column: 2/3;
+  .number {
+    display: flex;
+  }
 }
