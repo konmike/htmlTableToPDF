@@ -51,32 +51,36 @@
             <div class="checkbox">
                 <span class="pseudo-label">Je součástí čestné prohlášení?</span>
                 <input class="input" type="checkbox" id="isThereProhlaseni" name="isThereProhlaseni">
-                <label class="label label--prohlaseni" for="isThereProhlaseni">
-                    <div class="check"></div>
+                <label class="label" for="isThereProhlaseni">
+                    <a class="positive">Ano</a>
+                    <a class="active negative">Ne</a>
                 </label>
             </div>
         
             <div class="checkbox">
                 <span class="pseudo-label">Chci tisknout prohlášení?</span>
                 <input class="input" type="checkbox" id="printProhlaseni" name="printProhlaseni">
-                <label class="label label--prohlaseni" for="printProhlaseni">
-                    <div class="check"></div>
+                <label class="label" for="printProhlaseni">
+                    <a class="positive">Ano</a>
+                    <a class="active negative">Ne</a>
                 </label>
             </div>
         
             <div class="checkbox">
                 <span class="pseudo-label">Chci tisknout zadání úloh?</span>
-                <input class="input" type="checkbox" id="zadani" name="zadani" checked>
-                <label class="label label--zadani" for="zadani">
-                    <div class="check"></div>
+                <input class="input" type="checkbox" id="task" name="task">
+                <label class="label" for="task">
+                    <a class="active positive">Ano</a>
+                    <a class="negative">Ne</a>
                 </label>
             </div>
 
             <div class="checkbox">
                 <span class="pseudo-label">Zahrnout všechny studenty</span>
-                <input class="input" type="checkbox" id="zahrnout-vse" name="zahrnout-vse" checked>
-                <label class="label label--zahrnout-vse" for="zahrnout-vse">
-                    <div class="check"></div>
+                <input class="input" type="checkbox" id="include-all-students" name="include-all-students">
+                <label class="label" for="include-all-students">
+                    <a class="active positive">Ano</a>
+                    <a class="negative">Ne</a>
                 </label>
             </div>
 

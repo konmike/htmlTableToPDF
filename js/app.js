@@ -74,32 +74,37 @@ try {
     }
     document.getElementById("images").style.display = "none";
     document.querySelector(".help--upload").style.display = "none";
+
+    document.getElementById("task").checked = true;
+    document.getElementById("include-all-students").checked = true;
   });
 } catch (e) {
   alert(e);
 }
 
-document.getElementById("zahrnout-vse").addEventListener("change", function () {
-  let selectWrapper = document.getElementById("students-name");
-  let selectHelp = document.querySelector(".help--jmena-studentu");
-  if (this.checked === false) {
-    cssEdit.changeStyle([selectWrapper, selectHelp], "display", "flex");
-    // selectWrapper.style.display = "block";
-    // selectHelp.style.display = "flex";
-    new Select(document.querySelectorAll(".select")[0]);
-  } else {
-    let select = document.getElementsByClassName(
-      "js-example-basic-multiple"
-    )[0];
-    let span = document.getElementsByClassName("select2")[0];
-    // console.log(select);
-    selectWrapper.removeChild(select);
-    selectWrapper.removeChild(span);
-    // selectWrapper.style.display = "none";
-    // selectHelp.style.display = "none";
-    cssEdit.changeStyle([selectWrapper, selectHelp], "display", "none");
-  }
-});
+document
+  .getElementById("include-all-students")
+  .addEventListener("change", function () {
+    let selectWrapper = document.getElementById("students-name");
+    let selectHelp = document.querySelector(".help--jmena-studentu");
+    if (this.checked === false) {
+      cssEdit.changeStyle([selectWrapper, selectHelp], "display", "flex");
+      // selectWrapper.style.display = "block";
+      // selectHelp.style.display = "flex";
+      new Select(document.querySelectorAll(".select")[0]);
+    } else {
+      let select = document.getElementsByClassName(
+        "js-example-basic-multiple"
+      )[0];
+      let span = document.getElementsByClassName("select2")[0];
+      // console.log(select);
+      selectWrapper.removeChild(select);
+      selectWrapper.removeChild(span);
+      // selectWrapper.style.display = "none";
+      // selectHelp.style.display = "none";
+      cssEdit.changeStyle([selectWrapper, selectHelp], "display", "none");
+    }
+  });
 
 document.querySelectorAll(".radio")[0].addEventListener("change", function () {
   let rN = document.querySelectorAll(".radio + .number")[0];
@@ -128,3 +133,42 @@ document
   });
 
 const gallery = new Viewer(document.getElementById("images"));
+
+let labelsPrevent = document.querySelectorAll(".checkbox .label");
+labelsPrevent.forEach(function (lab) {
+  lab.addEventListener("click", function (e) {
+    e.preventDefault();
+  });
+});
+
+let positive = document.querySelectorAll(".label .positive");
+let negative = document.querySelectorAll(".label .negative");
+
+positive.forEach(function (el) {
+  el.addEventListener("click", function () {
+    // console.log(el.closest(".label").previousElementSibling.checked);
+
+    el.closest(".label").previousElementSibling.checked = true;
+    let evt = new Event("change");
+    el.closest(".label").previousElementSibling.dispatchEvent(evt);
+
+    el.nextElementSibling.classList.remove("active");
+    el.classList.add("active");
+    // console.log(el.closest(".label").previousElementSibling.checked);
+  });
+});
+
+negative.forEach(function (el) {
+  el.addEventListener("click", function () {
+    // console.log(el.closest(".label").previousElementSibling.checked);
+
+    el.closest(".label").previousElementSibling.checked = false;
+
+    let evt = new Event("change");
+    el.closest(".label").previousElementSibling.dispatchEvent(evt);
+
+    el.previousElementSibling.classList.remove("active");
+    el.classList.add("active");
+    // console.log(el.closest(".label").previousElementSibling.checked);
+  });
+});

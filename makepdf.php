@@ -13,8 +13,8 @@ $pocetUloh = $_POST['pocetUloh'];
 
 $isThereProhlaseni = (isset($_POST['isThereProhlaseni'])) ? 'Ano' : 'Ne';
 $printProhlaseni = (isset($_POST['printProhlaseni'])) ? 'Ano' : 'Ne';
-$zadani = (isset($_POST['zadani'])) ? 'Ano' : 'Ne';
-$zahrnoutVse = (isset($_POST['zahrnout-vse'])) ? 'Ano' : 'Ne';
+$zadani = (isset($_POST['task'])) ? 'Ano' : 'Ne';
+$zahrnoutVse = (isset($_POST['include-all-students'])) ? 'Ano' : 'Ne';
 
 $resultOption = $_POST['resultOption'];
 
