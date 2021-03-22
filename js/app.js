@@ -3,7 +3,7 @@ import Select from "./modules/select.js";
 import Upload from "./modules/upload.js";
 import cssEdit from "./modules/styleEdit.js";
 import genInput from "./modules/genInput.js";
-import "/node_modules/viewerjs/dist/viewer.js";
+import "../node_modules/viewerjs/dist/viewer.js";
 
 (function () {
   let quantities = document.querySelectorAll(".number");

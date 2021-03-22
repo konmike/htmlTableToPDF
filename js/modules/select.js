@@ -1,5 +1,5 @@
-import "/node_modules/select2/dist/js/select2.min.js";
-import "/node_modules/select2/dist/js/i18n/cs.js";
+import "../../node_modules/select2/dist/js/select2.min.js";
+import "../../node_modules/select2/dist/js/i18n/cs.js";
 
 export default class Select {
   constructor(self) {
