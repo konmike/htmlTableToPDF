@@ -1,9 +1,4 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var getContent = function getContent(upFile) {
+var getContent = function (upFile) {
   var reader = new FileReader();
   reader.onload = function (event) {
     var content = event.target.result;
@@ -21,6 +16,6 @@ var getContent = function getContent(upFile) {
   reader.readAsText(upFile[0]);
 };
 
-exports.default = {
-  getContent: getContent
+export default {
+  getContent,
 };

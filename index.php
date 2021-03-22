@@ -135,8 +135,9 @@
     </main>
     
     <div class="file"></div>
+    <!-- <script src="node_modules/babel-polyfill/dist/polyfill.min.js" defer=""></script> -->
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="./js/app.js" type="module"></script>
+    <script src="./src/js/app.js" type="module"></script>
     
 </body>
 </html>

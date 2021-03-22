@@ -1,7 +1,23 @@
-import QuantityInput from "./quantity.js";
+"use strict";
 
-export default class genInput {
-  constructor(self, val) {
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _quantity = require("./quantity.js");
+
+var _quantity2 = _interopRequireDefault(_quantity);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var genInput = function () {
+  function genInput(self, val) {
+    _classCallCheck(this, genInput);
+
     function Input() {
       this.input = document.createElement("input");
       this.input.value = 0;
@@ -11,18 +27,17 @@ export default class genInput {
       this.input.classList.add("input");
 
       this.input.addEventListener("change", function () {
-        let inputs = document.querySelectorAll(".generated .input");
-        let rest = 0;
-        inputs.forEach((input) => (rest += Number(input.value)));
+        var inputs = document.querySelectorAll(".generated .input");
+        var rest = 0;
+        inputs.forEach(function (input) {
+          return rest += Number(input.value);
+        });
         // console.log(rest);
 
-        let pS = Number(
-          document.querySelector("input[name=pocetStudentu]").value
-        );
+        var pS = Number(document.querySelector("input[name=pocetStudentu]").value);
         // console.log(pS);
         // console.log(pS - rest);
-        document.getElementById("rest").innerText =
-          "Zbývá rozřadit " + (pS - rest) + " prací.";
+        document.getElementById("rest").innerText = "Zbývá rozřadit " + (pS - rest) + " prací.";
       });
 
       return this.input;
@@ -36,10 +51,12 @@ export default class genInput {
     }
 
     function Button(classNames) {
+      var _this = this;
+
       this.button = document.createElement("button");
       this.button.type = "button";
-      classNames.forEach((className) => {
-        this.button.classList.add(className);
+      classNames.forEach(function (className) {
+        _this.button.classList.add(className);
       });
       return this.button;
     }
@@ -64,19 +81,19 @@ export default class genInput {
     // this.wrapper = new Wrapper("number");
 
     if (this.getChilds() < val) {
-      let s = val - this.getChilds();
-      for (let i = 0; i < s; i++) {
+      var s = val - this.getChilds();
+      for (var i = 0; i < s; i++) {
         // this.addChild();
         this.wrapper = new generateBlock();
-        new QuantityInput(this.wrapper);
+        new _quantity2.default(this.wrapper);
         // this.wrapper = new generateBlock();
         // new QuantityInput(this.wrapper);
         // console.log(this.getChilds());
       }
     } else if (this.getChilds() > val) {
-      let s = this.getChilds() - val;
-      console.log(s);
-      for (let i = 0; i < s; i++) {
+      var _s = this.getChilds() - val;
+      console.log(_s);
+      for (var _i = 0; _i < _s; _i++) {
         this.removeChild();
         // console.log(this.getChilds());
       }
@@ -87,17 +104,28 @@ export default class genInput {
    * Return number of child element of generated wrapper
    * @return  {int}
    * */
-  getChilds() {
-    return document.getElementById("generated").childElementCount;
-  }
 
-  addChild() {
-    this.wrapper = new generateBlock();
-    new QuantityInput(this.wrapper);
-  }
 
-  removeChild() {
-    let g = document.getElementById("generated");
-    g.removeChild(g.lastElementChild);
-  }
-}
+  _createClass(genInput, [{
+    key: "getChilds",
+    value: function getChilds() {
+      return document.getElementById("generated").childElementCount;
+    }
+  }, {
+    key: "addChild",
+    value: function addChild() {
+      this.wrapper = new generateBlock();
+      new _quantity2.default(this.wrapper);
+    }
+  }, {
+    key: "removeChild",
+    value: function removeChild() {
+      var g = document.getElementById("generated");
+      g.removeChild(g.lastElementChild);
+    }
+  }]);
+
+  return genInput;
+}();
+
+exports.default = genInput;
