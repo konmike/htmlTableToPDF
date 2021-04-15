@@ -20,11 +20,13 @@ export default class Select {
     });
 
     self.appendChild(this.input);
-    let s = document.querySelectorAll(".select .js-example-basic-multiple")[0];
+    // let s = document.querySelectorAll(".select .js-example-basic-multiple")[0];
     $(".js-example-basic-multiple").select2({
       placeholder: "Začněte psát jména/vyberte ze seznamu...",
       width: "100%",
       language: "cs",
+      tags: true,
+      tokenSeparators: [",", " "],
     });
     $("textarea").focus();
   }
