@@ -127,16 +127,17 @@
         </form>
 
         <div id="images" class="moodle--images">
-            <img src="/src/img/navod/1.png" alt="Jedna">
-            <img src="/src/img/navod/2.png" alt="Dva">
-            <img src="/src/img/navod/3.png" alt="Tři">
-            <img src="/src/img/navod/4.png" alt="Čtyři">
+            <img src="./src/img/navod/1.png" alt="Jedna">
+            <img src="./src/img/navod/2.png" alt="Dva">
+            <img src="./src/img/navod/3.png" alt="Tři">
+            <img src="./src/img/navod/4.png" alt="Čtyři">
         </div>
     </main>
     
     <div class="file"></div>
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="js/app.js" type="module"></script>
+    <!-- <script src="node_modules/babel-polyfill/dist/polyfill.min.js" defer=""></script> -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./src/js/app.js" type="module"></script>
     
 </body>
 </html>

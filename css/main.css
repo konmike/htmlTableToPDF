@@ -91,7 +91,7 @@ main {
   display: none;
 }
 .btn.sub, .btn.add {
-  background: #fff url("/src/img/plus-minus.svg") no-repeat 0 0;
+  background: #fff url("../src/img/plus-minus.svg") no-repeat 0 0;
   background-size: 4.8rem 2rem;
   overflow: hidden;
   cursor: pointer;
@@ -390,7 +390,7 @@ main {
   padding-left: 1rem;
 }
 .help span::after {
-  content: url(/src/img/fill-arrow.svg);
+  content: url(../src/img/fill-arrow.svg);
   min-width: 1.4rem;
   min-height: 1.4rem;
   max-width: 1.4rem;
