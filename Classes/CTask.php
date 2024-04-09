@@ -1,16 +1,18 @@
 <?php
 
-class CTask{
-    public $i = 1;
-    public $printProhlaseni = "";
+class CTask
+{
+    public $i = 0;
+    public $tasks = array();
 
     public function createTask($text)
     {
-        $this->{'task' . $this->i} = $text;
+        $this->tasks[$this->i] = $text;
         $this->i++;
     }
 
-    public function test() {
-        var_dump(get_object_vars($this));
+    public function test()
+    {
+        var_dump($this->tasks);
     }
 }

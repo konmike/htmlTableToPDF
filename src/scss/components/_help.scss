@@ -1,0 +1,55 @@
+.help {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1/2;
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  font-size: 1.2rem;
+  font-family: Calibri;
+  svg {
+    fill: #ffb938;
+    /* stroke: #ffb938; */
+    width: 4rem;
+    padding: 0 0 0 1rem;
+  }
+  span {
+    display: flex;
+    place-items: center center;
+    padding-left: 1rem;
+
+    &::after {
+      content: url(../src/img/fill-arrow.svg);
+      min-width: 1.4rem;
+      min-height: 1.4rem;
+      max-width: 1.4rem;
+      max-height: 1.4rem;
+      padding-left: 0.5rem;
+      fill: #ffb938;
+    }
+  }
+
+  &--pocet-uloh,
+  &--jmena-studentu,
+  &--generated {
+    display: none;
+  }
+
+  &--upload {
+    flex-direction: column;
+    span {
+      align-self: start;
+    }
+    svg {
+      transform: rotateX(180deg) rotate(45deg);
+      fill: #ffb938;
+    }
+  }
+  &--pocet-uloh,
+  &--jmena-studentu,
+  &--generated {
+    span {
+      align-self: center;
+    }
+  }
+}

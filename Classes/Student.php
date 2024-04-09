@@ -1,6 +1,7 @@
 <?php
 
-class Student{
+class Student
+{
     //Properties
     public $lastname;
     public $firstname;
@@ -11,27 +12,26 @@ class Student{
 
     public $prohlaseni;
 
-    public $answer1;
-    public $answer2;
-    public $answer3;
-    // public $delkapokusu;
-    // public $znamka;
-
     public $i = 1;
     public $j = 1;
 
+    public $questions = array();
+    public $answers = array();
+
     public function saveQuestion($text)
     {
-        $this->{'question' . $this->j} = $text;
+        $this->questions[$this->j] = $text;
         $this->j++;
     }
+
     public function saveAnswer($text)
     {
-        $this->{'answer' . $this->i} = $text;
+        $this->answers[$this->i] = $text;
         $this->i++;
     }
 
-    public function toString(){
+    public function toString()
+    {
         echo $this->lastname . " " . $this->firstname . " " . $this->email;
         echo '</br>';
     }

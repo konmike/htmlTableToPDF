@@ -4,199 +4,140 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML to PDF parser</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="jquery-ui.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css\main.css">
+    <link rel="stylesheet" href="node_modules\@fortawesome\fontawesome-free\css\all.min.css">
+    <link href="node_modules\select2\dist\css\select2.min.css" rel="stylesheet" />
+    <link href="node_modules\viewerjs\dist\viewer.min.css" rel="stylesheet" />
+    
 </head>
 <body>
-
-<div class="wrapper wrapper--full-content">
-    <form action="makepdf.php" method="post" class="form" enctype="multipart/form-data">
-<!--         
-        <div class="wrapper wrapper--file">
-            <label class="label label--file" for="myfile">
-            <input type="file" name="myfile" id="myfile">
-            <span class="file--custom"></span>
-            </label>
-        </div> -->
-
-        <div class="wrapper wrapper--file">
-            <input class="file-input" id="js-file-input" name="myfile" type="file">
-            <div class="file-content">
-            <div class="file-infos">
-                <p class="file-icon"><i class="fas fa-file-upload fa-2x"></i>
-                <span class="icon-shadow"></span>
-                <span>CLICK <span class="has-drag"> OR DRAG AND DROP</span></span>
-                </p>
+    <main role="main" class="main">
+        <form action="makepdf.php" method="post" class="form" enctype="multipart/form-data">
+        
+            <div class="help help--upload">
+                <span>Stáhněte si odevzdané práce studentů na webu moodle.prf.cuni.cz ve formátu HTML tabulka.</span>
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve"><path d="M88.6,79c-29.2-8.5-59.2-24.6-69-55.2c3.7,1.6,7.4,3.2,11.2,4.8c2.3,1,4.3-2.4,2-3.4c-6.1-2.6-12.2-5.2-18.4-7.9  c-2.2-1-4.2,2.2-2.2,3.3c-0.2,0.3-0.4,0.6-0.4,1.1c-0.3,4.8-0.7,9.6-1,14.3c-0.7,2.9-1,5.8-0.6,8.9c0.3,2.5,3.8,2.6,3.9,0  c0.2-2.7,0.4-5.5,0.6-8.2c0.1-0.5,0.2-1,0.4-1.5c0.2-0.6,0.1-1.2-0.2-1.6c0.2-3.2,0.4-6.4,0.7-9.6c9.9,32.4,41.2,49.7,72,58.7  C90,83.5,91,79.7,88.6,79z"/></svg>
             </div>
-                <p class="file-name" id="js-file-name">Žádný soubor nebyl vybrán...</p>
+
+            <div class="upload">
+                <div class="file-infos">
+                    <input class="input" id="js-file-input" name="myfile" type="file">
+                    <p class="file-icon">
+                        <i class="fas fa-file-upload fa-3x"></i>
+                        <label class="label">Klikni/<span class="has-drag">přetáhni soubor</span></label>
+                    </p>
+                </div>
+                <span class="file-name" id="js-file-name">Žádný soubor nebyl vybrán...</span>
             </div>
-        </div>
-            
-        <div class="wrapper wrapper--number" id="counter">
-            <span>Počet studentů</span>
-            <div class="counter-minus btn btn-primary">-</div>
-                <input type="text" value="1" name="pocetStudentu">
-            <div class="counter-plus btn btn-primary">+</div>
-        </div>
-                    
-        <div class="wrapper wrapper--number" id="counter2">
-            <span>Počet úloh</span>
-            <div class="counter-minus btn btn-primary">-</div>
-                <input type="text" value="3" name="pocetUloh">
-            <div class="counter-plus btn btn-primary">+</div>
-        </div>
-            
-        <div class="wrapper wrapper--checkbox">
-            <span>Je součástí prohlášení?</span>
-            <input type="checkbox" id="isThereProhlaseni" name="isThereProhlaseni">
-            <label class="label label--prohlaseni" for="isThereProhlaseni">
-                <div class="check"></div>
-            </label>
-        </div>
-        <div class="wrapper wrapper--checkbox">
-            <span>Chci tisknout prohlášení?</span>
-            <input type="checkbox" id="printProhlaseni" name="printProhlaseni">
-            <label class="label label--prohlaseni" for="printProhlaseni">
-                <div class="check"></div>
-            </label>
-        </div>
-        <div class="wrapper wrapper--checkbox">
-            <span>Chci tisknout i zadání úloh?</span>
-            <input type="checkbox" id="zadani" name="zadani" checked>
-            <label class="label label--zadani" for="zadani">
-                <div class="check"></div>
-            </label>
-        </div>
-
-        <div class="wrapper wrapper--checkbox">
-            <span>Zahrnout všechny studenty</span>
-            <input type="checkbox" id="zahrnout-vse" name="zahrnout-vse" checked>
-            <label class="label label--zahrnout-vse" for="zahrnout-vse">
-                <div class="check"></div>
-            </label>
-        </div>
-
-        <div id="students-name" class="wrapper wrapper--students-name">
-        <span>Jména studentů:</span>
-            <input type="text" name="jmenaStudentu" autocomplete="off" placeholder="Jmena studentu oddelena carkou">
-        </div>
-
-
-        <div class="wrapper wrapper--number" id="counter3">
-            <span>Počet souborů:</span>
-            <div id="counter3-minus" class="counter-minus btn btn-primary">-</div>
-                <input type="text" value="0" name="pocetSouboru">
-            <div id="counter3-plus" class="counter-plus btn btn-primary">+</div>
-        </div>
-
-        <div id="generated-input" class="wrapper wrapper--generated-input">
-        </div>
-            
-        
-        <input type="submit" value="Stáhnout">
-        
-    </form>
-
-    <div class="file"></div>
-    </div>
-
-    <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
-    <script src="js/jquery-1.12.4.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/handleCounter.js"></script>
-    
-    <script> 
-        /*if (window.File && window.FileReader && window.FileList && window.Blob) {
-          alert("Si esta soportado el API!");
-        } else {
-          alert('The File APIs are not fully supported in this browser.');
-        }*/
-
-        
-        var getContent = function(upFile) {
-          var reader = new FileReader();
-          reader.onload = function(event) {
-            var content = event.target.result;
-
-            // console.log(content);
-            
-            $('.file').append(content);
-            // console.log($('table tr').length - 1);
-            // console.log( ($('table th').length - 8)/2 );
-            $('input[name=pocetStudentu]').val($('table tr').length - 1);
-            $('input[name=pocetUloh]').val(($('table th').length - 8)/2);
-
-            $('.file style').remove();
-
-            
-
-          };
-          reader.readAsText(upFile[0]);
-        }
-
-        try {
-            $('#js-file-input').change(function() {
-                getContent(this.files);
                 
-            });
-        }
-        catch (e) {
-            alert(e);
-        }
+            <div class="number">
+                <label class="label">Počet prací</label>
+                <button class="btn sub" disabled></button>
+                    <input class="input" readonly type="text" pattern="[0-9]+" value="0" name="pocetStudentu" >
+                <button class="btn add" disabled></button>
+            </div>
+                     
+            <div class="help help--pocet-uloh">
+                <span>Počet úloh k vypracování (bez čestného prohlášení).</span>
+            </div>
 
-    </script>
+            <div class="number">
+                <label class="label">Počet úloh</label>
+                <button class="btn sub"></button>
+                    <input class="input" type="text" pattern="[0-9]+" value="0" name="pocetUloh">
+                <button class="btn add"></button>
+            </div>
+                
+            <div class="checkbox">
+                <span class="pseudo-label">Je součástí čestné prohlášení?</span>
+                <input class="input" type="checkbox" id="isThereProhlaseni" name="isThereProhlaseni">
+                <label class="label" for="isThereProhlaseni">
+                    <a class="positive">Ano</a>
+                    <a class="active negative">Ne</a>
+                </label>
+            </div>
+        
+            <div class="checkbox">
+                <span class="pseudo-label">Chci tisknout prohlášení?</span>
+                <input class="input" type="checkbox" id="printProhlaseni" name="printProhlaseni">
+                <label class="label" for="printProhlaseni">
+                    <a class="positive">Ano</a>
+                    <a class="active negative">Ne</a>
+                </label>
+            </div>
+        
+            <div class="checkbox">
+                <span class="pseudo-label">Chci tisknout zadání úloh?</span>
+                <input class="input" type="checkbox" id="task" name="task">
+                <label class="label" for="task">
+                    <a class="active positive">Ano</a>
+                    <a class="negative">Ne</a>
+                </label>
+            </div>
 
-    <script>
-        $(function ($) {
-            var options = {
-                minimum: 1,
-                maximize: 500,
-                onChange: valChanged,
-                onMinimum: function(e) {
-                    console.log('reached minimum: '+e)
-                },
-                onMaximize: function(e) {
-                    console.log('reached maximize'+e)
-                }
-            }
-            $('#counter').handleCounter(options)
-            $('#counter2').handleCounter(options)
-			$('#counter3').handleCounter({minimum: 0})
-        })
-        function valChanged(d) {
-//            console.log(d)
-        }
-    </script>
-    <script src="js/formUpdate.js"></script>
-    <script>
-        (function () {
-            window.supportDrag = function() {
-                let div = document.createElement('div');
-                return (('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)) && 'FormData' in window && 'FileReader' in window;
-            }();
-        
-            let input =  document.getElementById('js-file-input');
-        
-            if(!supportDrag){
-                document.querySelectorAll('.has-drag')[0].classList.remove('has-drag');
-            }
+            <div class="checkbox">
+                <span class="pseudo-label">Zahrnout všechny studenty</span>
+                <input class="input" type="checkbox" id="include-all-students" name="include-all-students">
+                <label class="label" for="include-all-students">
+                    <a class="active positive">Ano</a>
+                    <a class="negative">Ne</a>
+                </label>
+            </div>
+
+            <div class="help help--jmena-studentu">
+                <span>Jména jsou bez diakritiky, řazena abecedně.</span>
+            </div>
+
+            <div id="students-name" class="select">
+                <label class="label">Jména vybraných studentů:</label>
+            </div>
+
+            <div class="radio">
+                <legend class="legend">Způsob generování PDF</legend>
+                <label class="label">
+                    <input class="input" type="radio" name="resultOption" value="0" checked/>
+                    <span>Každá práce do samostatného PDF</span>
+                </label>
+                <label class="label">
+                    <input class="input" type="radio" name="resultOption" value="1" />
+                    <span>Všechny práce v rámci jednoho PDF</span>
+                </label>
+                <label class="label">
+                    <input class="input" type="radio" name="resultOption" value="2"/>
+                    <span>Rozdělení prací do více PDF</span>
+                </label>
+            </div>
+
+            <div class="number">
+                <label class="label">Počet souborů:</label>
+                <button class="btn sub"></button>
+                    <input class="input" type="text" pattern="[0-9]+" value="2" min="2" name="pocetSouboru">
+                <button class="btn add"></button>
+            </div>
+
+            <div class="help help--generated">
+                <span id="rest"></span>
+            </div>
+
+            <div id="generated" class="generated">
+            </div>                
             
-            input.addEventListener("change", function(e){      
-                document.getElementById('js-file-name').innerHTML = this.files[0].name;     
-                document.querySelectorAll('.file-input')[0].classList.remove('file-input--active');
-            }, false);
-        
-            if(supportDrag){   
-                input.addEventListener("dragenter", function(e) {
-                    document.querySelectorAll('.file-input')[0].classList.add('file-input--active');
-                });
+            <input class="btn btn--submit btn--bg-fill" type="submit" value="Stáhnout">
+            
+        </form>
 
-                input.addEventListener("dragleave", function(e) {
-                    document.querySelectorAll('.file-input')[0].classList.remove('file-input--active');
-                });
-            }
-        })();
-    </script>
+        <div id="images" class="moodle--images">
+            <img src="./src/img/navod/1.png" alt="Jedna">
+            <img src="./src/img/navod/2.png" alt="Dva">
+            <img src="./src/img/navod/3.png" alt="Tři">
+            <img src="./src/img/navod/4.png" alt="Čtyři">
+        </div>
+    </main>
+    
+    <div class="file"></div>
+    <!-- <script src="node_modules/babel-polyfill/dist/polyfill.min.js" defer=""></script> -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./src/js/app.js" type="module"></script>
+    
 </body>
 </html>

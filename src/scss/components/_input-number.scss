@@ -1,0 +1,43 @@
+.number {
+  overflow: hidden;
+  display: none;
+  flex-direction: row;
+  align-items: center;
+
+  margin: 0.5rem;
+  grid-column: 2/3;
+
+  .label {
+    padding-right: 1rem;
+  }
+  .input {
+    width: 50px;
+    border: none;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    text-align: center;
+    -moz-appearance: textfield;
+    border-top: 1px solid rgba(46 57 77 / 50%);
+    border-bottom: 1px solid rgba(46 57 77 / 50%);
+    font-size: 1rem;
+    height: 2rem;
+    padding: 0;
+    box-sizing: border-box;
+
+    &:focus {
+      border-top: 1px solid rgba(46 57 77 / 100%);
+      border-bottom: 1px solid rgba(46 57 77 / 100%);
+      outline: none;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    &[name="pocetStudentu"] {
+      pointer-events: none;
+    }
+  }
+}

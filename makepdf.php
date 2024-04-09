@@ -10,22 +10,28 @@ require_once __DIR__ . '/Classes/CMakePdf.php';
 
 $pocetStudentu = $_POST['pocetStudentu'];
 $pocetUloh = $_POST['pocetUloh'];
-$pocetSouboru = $_POST['pocetSouboru']; 
+
 $isThereProhlaseni = (isset($_POST['isThereProhlaseni'])) ? 'Ano' : 'Ne';
 $printProhlaseni = (isset($_POST['printProhlaseni'])) ? 'Ano' : 'Ne';
-$zadani = (isset($_POST['zadani'])) ? 'Ano' : 'Ne';
-$zahrnoutVse = (isset($_POST['zahrnout-vse'])) ? 'Ano' : 'Ne';
+$zadani = (isset($_POST['task'])) ? 'Ano' : 'Ne';
+$zahrnoutVse = (isset($_POST['include-all-students'])) ? 'Ano' : 'Ne';
 
-if($zahrnoutVse == 'Ne'){
-    $jmenaStudentu = explode(',', $_POST['jmenaStudentu']);
+$resultOption = $_POST['resultOption'];
+
+if ($resultOption == 2) {
+    $pocetSouboru = $_POST['pocetSouboru'];
+    $generatedInputs = $_POST['gI'];
+
+    // echo count($generatedInputs) . '<br>';
+}
+
+if ($zahrnoutVse == 'Ne') {
+    $jmenaStudentu = $_POST['names'];
     // foreach ($jmenaStudentu as $student) {
     //     echo $student;
     //     echo '<br>';
     // }
 }
-$generatedInputs = (isset($_POST['gI'])) ? $_POST['gI'] : 0;
-
-
 
 //Zprovozněno přes nahrávací tlačítko
 $oldPath = $_FILES['myfile']['tmp_name'];
@@ -52,13 +58,14 @@ $j = 0;
 
 $task = new CTask();
 
-$z = ($isThereProhlaseni == 'Ano')?(10):(8);
-if ($printProhlaseni == 'Ano') $task->printProhlaseni = $data[8]->nodeValue;
-    
+$z = ($isThereProhlaseni == 'Ano') ? (10) : (8);
+if ($printProhlaseni == 'Ano')
+    $task->printProhlaseni = $data[8]->nodeValue;
+
 // echo $data[8]->nodeValue . '<br>';
 
-if($zadani == 'Ano'){
-    for ($q=0; $q < $pocetUloh; $q++) { 
+if ($zadani == 'Ano') {
+    for ($q = 0; $q < $pocetUloh; $q++) {
         $task->createTask($data[$z]->nodeValue);
         // echo $data[$z]->nodeValue . '<br>';
         $z += 2;
@@ -73,11 +80,11 @@ while (true) {
     $student->lastname = $data[$i]->nodeValue;
     // echo $data[$i]->nodeValue. ' - '. $i . '<br>';
     $i++;
-    
+
     $student->firstname = $data[$i]->nodeValue;
     // echo $data[$i]->nodeValue. ' - '. $i . '<br>';
     $i++;
-    
+
     $student->email = $data[$i]->nodeValue;
     // echo $data[$i]->nodeValue. ' - '. $i . '<br>';
     //$student->toString();
@@ -91,15 +98,16 @@ while (true) {
     // echo $data[$i]->nodeValue. ' - '. $i . '<br>';
     $i += 3;
 
-    if($isThereProhlaseni == 'Ano'){
+    if ($isThereProhlaseni == 'Ano') {
         $i++;
-        if ($printProhlaseni == 'Ano') $student->prohlaseni = $data[$i]->nodeValue;
+        if ($printProhlaseni == 'Ano')
+            $student->prohlaseni = $data[$i]->nodeValue;
         //echo $data[$i]->nodeValue. ' - '. $i . '<br><br>';
         $i++;
     }
     //!!! if($zadani == 'Ano')
-        
-    for ($w=0; $w < $pocetUloh; $w++) { 
+
+    for ($w = 0; $w < $pocetUloh; $w++) {
         $student->saveQuestion($data[$i]->nodeValue);
         // echo $data[$i]->nodeValue. ' - '. $i . '<br>';
         $i++;
@@ -115,9 +123,9 @@ while (true) {
     //$i++;
     $count++;
     //echo $count.'<br>';
-    array_push($students,$student);
+    array_push($students, $student);
 
-    if ($count == $pocetStudentu){
+    if ($count == $pocetStudentu) {
 
         // foreach ($students as $element) {
         //     $element->toString();
@@ -126,22 +134,24 @@ while (true) {
     }
 }
 
-if($zahrnoutVse == 'Ne'){
+if ($zahrnoutVse == 'Ne') {
+    $transliterator = Transliterator::createFromRules(':: Any-Latin; :: Latin-ASCII; :: NFD; :: [:Nonspacing Mark:] Remove; :: NFC;', Transliterator::FORWARD);
+
     $vyvoleni = [];
     foreach ($students as $student) {
         // echo 'Pocet: ' . count($jmenaStudentu) . '<br>';
-        // echo 'Porovnej: ' . $student->lastname . '<br>';
+        // echo 'Porovnej: ' . $transliterator->transliterate($student->lastname) . '<br>';
         foreach ($jmenaStudentu as $jmeno) {
             // echo $jmeno . '<br>';
-            
-            if($jmeno == $student->lastname){
+
+            if ($jmeno == $transliterator->transliterate($student->lastname)) {
                 // echo $student->lastname . ' ' . $student->email . '<br>';
                 array_push($vyvoleni, $student);
                 continue;
             }
             // echo count($vyvoleni) . '<br>';
         }
-        if(count($jmenaStudentu) == count($vyvoleni)){
+        if (count($jmenaStudentu) == count($vyvoleni)) {
             // echo count($jmenaStudentu) . '<br>';        
             // echo count($vyvoleni) . '<br>';
             // echo 'hello' . '<br>';
@@ -160,7 +170,7 @@ if($zahrnoutVse == 'Ne'){
 //     $collator = new Collator('cs');
 //     $arr = array($a['lastname'], $b['lastname']);
 //     collator_sort($collator, $arr, Collator::SORT_STRING);
-  
+
 //     return array_pop($arr) == $a['lastname'];
 // });
 
@@ -168,47 +178,47 @@ if($zahrnoutVse == 'Ne'){
 
 $makepdf = new CMakePdf();
 
-if($pocetSouboru == 0){
-    if($zahrnoutVse == 'Ano')
-        $makepdf->onePdfPerStudent($students,$pocetUloh,$zadani,$task, $printProhlaseni);
+if ($resultOption == 0) {
+    if ($zahrnoutVse == 'Ano')
+        $makepdf->onePdfPerStudent($students, $pocetUloh, $zadani, $task, $printProhlaseni);
     else
-        $makepdf->onePdfPerStudent($vyvoleni,$pocetUloh,$zadani,$task, $printProhlaseni);
-}else if($pocetSouboru == 1){
-    if($zahrnoutVse == 'Ano')
-        $makepdf->onePdfAllStudents($students,$pocetUloh,$zadani,$task, $printProhlaseni);
+        $makepdf->onePdfPerStudent($vyvoleni, $pocetUloh, $zadani, $task, $printProhlaseni);
+} else if ($resultOption == 1) {
+    if ($zahrnoutVse == 'Ano')
+        $makepdf->onePdfAllStudents($students, $pocetUloh, $zadani, $task, $printProhlaseni);
     else
-        $makepdf->onePdfAllStudents($vyvoleni,$pocetUloh,$zadani,$task, $printProhlaseni);
-}else{
+        $makepdf->onePdfAllStudents($vyvoleni, $pocetUloh, $zadani, $task, $printProhlaseni);
+} else {
     $zip = new ZipArchive();
     $zipFile = tempnam('./tmp', 'zip');
     $zip->open($zipFile, ZipArchive::CREATE);
 
     $index = 0;
-    for ($a=0; $a < count($generatedInputs); $a++) {
+    for ($a = 0; $a < count($generatedInputs); $a++) {
         $curr = $a;
 
-        if($a == 0){
-            if($zahrnoutVse == 'Ano')
-                $t_pdfData = $makepdf->groupStudentsToPdf($a,$generatedInputs[$curr],$students,$pocetUloh,$zadani,$task,$printProhlaseni);
+        if ($a == 0) {
+            if ($zahrnoutVse == 'Ano')
+                $t_pdfData = $makepdf->groupStudentsToPdf($a, $generatedInputs[$curr], $students, $pocetUloh, $zadani, $task, $printProhlaseni);
             else
-                $t_pdfData = $makepdf->groupStudentsToPdf($a,$generatedInputs[$curr],$vyvoleni,$pocetUloh,$zadani,$task,$printProhlaseni);
-        }
-        else{
-            if($zahrnoutVse == 'Ano')
-                $t_pdfData = $makepdf->groupStudentsToPdf($index,($index + $generatedInputs[$curr]),$students,$pocetUloh,$zadani,$task,$printProhlaseni);
+                $t_pdfData = $makepdf->groupStudentsToPdf($a, $generatedInputs[$curr], $vyvoleni, $pocetUloh, $zadani, $task, $printProhlaseni);
+        } else {
+            if ($zahrnoutVse == 'Ano')
+                $t_pdfData = $makepdf->groupStudentsToPdf($index, ($index + $generatedInputs[$curr]), $students, $pocetUloh, $zadani, $task, $printProhlaseni);
             else
-                $t_pdfData = $makepdf->groupStudentsToPdf($index,($index + $generatedInputs[$curr]),$vyvoleni,$pocetUloh,$zadani,$task,$printProhlaseni);
+                $t_pdfData = $makepdf->groupStudentsToPdf($index, ($index + $generatedInputs[$curr]), $vyvoleni, $pocetUloh, $zadani, $task, $printProhlaseni);
         }
-            
+
         ($zahrnoutVse == 'Ano') ? ($zip->addFromString("{$students[$index]->lastname}-{$students[$index + $generatedInputs[$curr] - 1]->lastname}.pdf", $t_pdfData)) : ($zip->addFromString("{$vyvoleni[$index]->lastname}-{$vyvoleni[$index + $generatedInputs[$curr] - 1]->lastname}.pdf", $t_pdfData));
-        
+
         $index += $generatedInputs[$curr];
     }
 
     $zip->close();
+    ob_end_clean();
 
     header("Content-type: application/zip");
-    header('Content-Disposition: attachment; filename=Documents.zip'); 
+    header('Content-Disposition: attachment; filename=Documents.zip');
     readfile($zipFile);
 
     unlink($zipFile);
